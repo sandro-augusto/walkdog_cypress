@@ -9,16 +9,22 @@ describe('Acessando a Pagina Home', () => {
   it('Validando pagina de cadastro', () => {
     cy.pagCadastro()
   })
-  it.only('Cadastrando clientes para Passear com os cães', () => {
+  it('Cadastrando clientes para Passear com os cães', () => {
     cy.pagCadastro()
     cy.cadastro()
     cy.get(el.btPassear).click()
-    cy.get('.dropzone > p').selectFile('cypress/fixtures/images/cnh.png')
+    // cy.get('p svg').click()
+    cy.get('input[accept="image/*"]').selectFile('images/cnh.png', {force: true})
+    cy.get(el.btCadastrar).click()
+    cy.get('p').should('have.text', 'Recebemos o seu cadastro e em breve retornaremos o contato!')
   })
-  it('Cadastrando clientes para Cuidar dos cães', () => {
+  it.only('Cadastrando clientes para Cuidar dos cães', () => {
     cy.pagCadastro()
-    cy.cadastro()
+    // cy.cadastro()
     cy.get(el.btCuidar).click()
+    cy.get('input[accept="image/*"]').selectFile('images/cnh.png', {force: true})
+    cy.get(el.btCadastrar).click()
+    cy.contains('span[class="alert-error"]', 'Informe o seu nome completo')
   })
   it('Cadastrando clientes para Adestrar os cães', () => {
     cy.pagCadastro()
