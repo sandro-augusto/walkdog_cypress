@@ -20,10 +20,6 @@ import 'cypress-file-upload';
   })
   
   Cypress.Commands.add('DadosPessoais', (nome, email, cpf) => {
-    const nomeFinal = nome !== null ? nome : '';
-    const emailFinal = email !== null ? email : '';
-    const cpfFinal = cpf !== null ? cpf : '';
-
     cy.get(el.campoNome).type(nome)
     cy.get(el.campoEmail).type(email)
     cy.get(el.campoCpf).type(cpf)
