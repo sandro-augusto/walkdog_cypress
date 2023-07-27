@@ -11,5 +11,6 @@ export const CADASTRO = {
     btCuidar: 'img[alt="Cuidar"]',
     btAdestrar: 'img[alt="Adestrar"]',
     btUpload: 'svg[fill="none"]',
-    btCadastrar: '.button-register'
+    btCadastrar: '.button-register',
+    alertErro: '.alert-error'
 }
