@@ -1,68 +1,65 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+var el = require('../support/elements/elPage').CADASTRO
+import { faker, fakerPT_BR } from '@faker-js/faker'
 import 'cypress-file-upload';
 
 
-Cypress.Commands.add('home', () => {
+ Cypress.Commands.add('home', () => {
     cy.visit('https://walkdog.vercel.app/')
-    cy.contains('h1', 'Cuidado e diversão em cada passo!')
+    
   })
-  
+
+  Cypress.Commands.add('ValidaMensage', (mensage) => {
+    cy.get('h1').should('be.visible').should('have.text', mensage)
+  })
+
   Cypress.Commands.add('pagCadastro', () => {
     cy.visit('https://walkdog.vercel.app/')
-    cy.contains('h1', 'Cuidado e diversão em cada passo!')
+    cy.ValidaMensage('Cuidado e diversão em cada passo!')
     cy.get(el.btLogin).click()
-    cy.contains('h1', 'Faça seu cadastro')
+    cy.ValidaMensage('Faça seu cadastro')
   })
   
-  Cypress.Commands.add('cadastro', () => {
-    cy.get(el.campoNome).type(faker.person.fullName())
-    cy.get(el.campoEmail).type(faker.internet.exampleEmail())
-    cy.get(el.campoCpf).type(faker.random.numeric(11))
-    cy.get(el.campoCep).type(50760170)
+  Cypress.Commands.add('DadosPessoais', (nome, email, cpf) => {
+    const nomeFinal = nome !== null ? nome : '';
+    const emailFinal = email !== null ? email : '';
+    const cpfFinal = cpf !== null ? cpf : '';
+
+    cy.get(el.campoNome).type(nome)
+    cy.get(el.campoEmail).type(email)
+    cy.get(el.campoCpf).type(cpf)
+    
+  })
+
+  Cypress.Commands.add('Endereco', (cep, numero, completo) => {
+    cy.get(el.campoCep).type(cep)
     cy.get(el.btBuscarCep).click()
-    cy.get(el.campoNumero).type(faker.random.numeric(4))
-    cy.get(el.campoComp).type('casa')
+    cy.get(el.campoNumero).type(numero)
+    cy.get(el.campoComp).type(completo)
   })
-  
-  Cypress.Commands.add('validacao', () => {
+
+  Cypress.Commands.add('uploud', () => {
     cy.get('input[accept="image/*"]').selectFile('images/cnh.png', {force: true})
     cy.get(el.btCadastrar).click()
+  })
+
+  Cypress.Commands.add('ValidaMensageCadastroOk', () => {
     cy.get('p').should('have.text', 'Recebemos o seu cadastro e em breve retornaremos o contato!')
   })
+
+
   
-  Cypress.Commands.add('alertErro', () => {
-    cy.contains('span', 'Informe o seu nome completo')
-    cy.contains('span', 'Informe o seu melhor email')
-    cy.contains('span', 'Informe o seu CPF')
-    cy.contains('span', 'Informe o seu CEP')
-    cy.contains('span', 'Informe um número maior que zero')
-    cy.contains('span', 'Escolha pelo menos um tipo de atividade')
-    cy.contains('span', 'Adcione um documento com foto (RG ou CHN)')
+  Cypress.Commands.add('alertErro', (mensage) => {
+    cy.contains('span', mensage).should('be.visible')
+    
   })
+
+  // cy.contains('span', 'Informe o seu nome completo')
+  //   cy.contains('span', 'Informe o seu melhor email')
+  //   cy.contains('span', 'Informe o seu CPF')
+  //   cy.contains('span', 'Informe o seu CEP')
+  //   cy.contains('span', 'Informe um número maior que zero')
+  //   cy.contains('span', 'Escolha pelo menos um tipo de atividade')
+  //   cy.contains('span', 'Adcione um documento com foto (RG ou CHN)')
   
   
   
