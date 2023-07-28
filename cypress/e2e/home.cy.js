@@ -44,8 +44,7 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
   context('Validando mensagens de erro', () => {
     it('Validando mensagem de erro NOME COMPLETO', () => {
       cy.pagCadastro()
-      cy.get(el.campoEmail).type(faker.internet.exampleEmail())
-      cy.get(el.campoCpf).type(faker.random.numeric(11))
+      cy.DadosPessoais(null, faker.internet.exampleEmail(), faker.random.numeric(11))
       cy.Endereco(50760170, faker.random.numeric(4), 'casa')
       cy.get(el.btPassear).click()
       cy.uploud()
@@ -54,8 +53,7 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
   
     it('Validando mensagem de erro EMAIL', () => {
       cy.pagCadastro()
-      cy.get(el.campoNome).type(faker.person.fullName())
-      cy.get(el.campoCpf).type(faker.random.numeric(11))
+      cy.DadosPessoais(faker.person.fullName(), null, faker.random.numeric(11))
       cy.Endereco(50760170, faker.random.numeric(4), 'casa')
       cy.get(el.btPassear).click()
       cy.uploud()
@@ -63,8 +61,7 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
     })
     it('Validando mensagem de erro CPF', () => {
       cy.pagCadastro()
-      cy.get(el.campoNome).type(faker.person.fullName())
-      cy.get(el.campoEmail).type(faker.internet.exampleEmail())
+      cy.DadosPessoais(faker.person.fullName(), faker.internet.exampleEmail(), null)
       cy.Endereco(50760170, faker.random.numeric(4), 'casa')
       cy.get(el.btPassear).click()
       cy.uploud()
@@ -73,8 +70,7 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
     it('Validando mensagem de erro CEP', () => {
       cy.pagCadastro()
       cy.DadosPessoais(faker.person.fullName(), faker.internet.exampleEmail(), faker.random.numeric(11))
-      cy.get(el.campoNumero).type(faker.random.numeric(4))
-      cy.get(el.campoComp).type('Casa')
+      cy.Endereco(null, faker.random.numeric(4), 'casa')
       cy.get(el.btPassear).click()
       cy.uploud()
       cy.alertErro('Informe o seu CEP')
@@ -82,9 +78,8 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
     it('Validando mensagem de erro Número', () => {
       cy.pagCadastro()
       cy.DadosPessoais(faker.person.fullName(), faker.internet.exampleEmail(), faker.random.numeric(11))
-      cy.get(el.campoCep).type(50760170)
+      cy.Endereco(50760170, null, 'casa')
       cy.get(el.btBuscarCep)
-      cy.get(el.campoComp).type('Casa')
       cy.get(el.btPassear).click()
       cy.uploud()
       cy.alertErro('Informe um número maior que zero')
@@ -105,6 +100,7 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
       cy.alertErro('Adcione um documento com foto (RG ou CHN)')
     })
   })
+
 
   })
 

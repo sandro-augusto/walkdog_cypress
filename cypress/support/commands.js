@@ -20,17 +20,29 @@ import 'cypress-file-upload';
   })
   
   Cypress.Commands.add('DadosPessoais', (nome, email, cpf) => {
-    cy.get(el.campoNome).type(nome)
-    cy.get(el.campoEmail).type(email)
-    cy.get(el.campoCpf).type(cpf)
-    
+    if (nome !== null) {
+      cy.get(el.campoNome).type(nome);
+    }
+    if (email !== null) {
+      cy.get(el.campoEmail).type(email);
+    }
+    if (cpf !== null) {
+      cy.get(el.campoCpf).type(cpf);
+    }
   })
 
   Cypress.Commands.add('Endereco', (cep, numero, completo) => {
-    cy.get(el.campoCep).type(cep)
+    if (cep !== null) {
+      cy.get(el.campoCep).type(cep);
+    }
+    if (numero !== null) {
+      cy.get(el.campoNumero).type(numero);
+    }
+    if (completo !== null) {
+      cy.get(el.campoComp).type(completo);
+    }
     cy.get(el.btBuscarCep).click()
-    cy.get(el.campoNumero).type(numero)
-    cy.get(el.campoComp).type(completo)
+    
   })
 
   Cypress.Commands.add('uploud', () => {
