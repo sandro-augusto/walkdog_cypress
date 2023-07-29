@@ -1,6 +1,11 @@
 name: WalkDog Testes
 
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      cli: 
+        description: Run by cypress command line
+        default: yarn cypress run
 
 jobs: 
   cypress-electron-tests:
@@ -13,5 +18,5 @@ jobs:
         run: yarn install
         
       - name: Run E2E tests
-        run: yarn cypress run
+        run: ${{ github.event.inputs.cli }}
       
