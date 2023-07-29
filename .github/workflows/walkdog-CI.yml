@@ -1,0 +1,17 @@
+name: WalkDog Testes
+
+on: [push]
+
+jobs: 
+  cypress-electron-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3.5.3
+      
+      - name: Install dependencies
+        run: yarn install
+        
+      - name: Run E2E tests
+        run: yarn cypress run
+      
