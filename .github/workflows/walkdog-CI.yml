@@ -21,10 +21,12 @@ jobs:
       
       - name: Install dependencies
         run: yarn install
-        
+       
+      - name: Run E2E testes Push
+        run: yarn cypress run  
+
       - name: Run E2E tests
         run: ${{ github.event.inputs.cli }}
 
-      - name: Run E2E testes Push
-        run: yarn cypress run
+      
       
