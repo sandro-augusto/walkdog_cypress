@@ -4,7 +4,11 @@
   "description": "Funcionalidade: Criar uma tela de cadastro para usuários se registrarem com as possibilidades de Passear, Cuidar e Adestrar cães",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "run_allure": "yarn cypress run --env allure=true",
+    "run_allure_npm": "npx cypress run --env allure=true",
+    "yallure_serve": "yarn allure serve",
+    "nallure_serve": "npx allure serve",
+    "test": "npm-run-all run_allure yallure_serve"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +18,7 @@
     "@shelex/cypress-allure-plugin": "^2.40.0",
     "allure-commandline": "^2.23.1",
     "cypress": "12.2.0",
-    "cypress-file-upload": "^5.0.8"
+    "cypress-file-upload": "^5.0.8",
+    "npm-run-all": "^4.1.5"
   }
 }
