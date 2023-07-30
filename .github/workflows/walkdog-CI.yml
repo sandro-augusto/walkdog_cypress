@@ -24,4 +24,7 @@ jobs:
         
       - name: Run E2E tests
         run: ${{ github.event.inputs.cli }}
+
+      - name: Run E2E testes Push
+        run: yarn cypress run
       
