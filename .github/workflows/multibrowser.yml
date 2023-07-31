@@ -24,6 +24,8 @@ jobs:
           record: true
           group: UI Electron
           spec: ${{ github.inputs.spec }}
+      - name: Start testes 
+        run: yarn cypress run
   cypress-e2e-chrome:
     needs: cypress-e2e-electron
     runs-on: unbutu-latest
@@ -42,6 +44,8 @@ jobs:
           record: true
           group: UI Chrome
           spec: ${{ github.inputs.spec }}
+      - name: Start testes 
+        run: yarn cypress run
   cypress-e2e-firefox:
     needs: cypress-e2e-electron
     runs-on: unbutu-latest
@@ -55,11 +59,12 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v5.8.2
         with:
-        
           install-command: yarn install
           browser: firefox
           record: true
           group: UI Firefox
           spec: ${{ github.inputs.spec }}
+      - name: Start testes 
+        run: yarn cypress run
         
       
