@@ -23,7 +23,7 @@ jobs:
           browser: electron
           record: true
           group: UI Electron
-          spec: ${{ github.inputs.spec }}
+          spec: ${{ github.events.inputs.spec }}
       - name: Start testes 
         run: yarn cypress run
   cypress-e2e-chrome:
@@ -43,7 +43,7 @@ jobs:
           browser: chrome
           record: true
           group: UI Chrome
-          spec: ${{ github.inputs.spec }}
+          spec: ${{ github.events.inputs.spec }}
       - name: Start testes 
         run: yarn cypress run
   cypress-e2e-firefox:
@@ -63,7 +63,7 @@ jobs:
           browser: firefox
           record: true
           group: UI Firefox
-          spec: ${{ github.inputs.spec }}
+          spec: ${{ github.events.inputs.spec }}
       - name: Start testes 
         run: yarn cypress run
         
