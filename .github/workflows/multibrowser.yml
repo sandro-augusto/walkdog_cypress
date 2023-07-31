@@ -5,7 +5,7 @@ on:
     inputs:
       spec: 
         description: Run by cypress command line
-        default: yarn cypress run
+        default: cypress/e2e/*
 jobs:
   cypress-e2e-electron:
     runs-on: unbutu-latest
