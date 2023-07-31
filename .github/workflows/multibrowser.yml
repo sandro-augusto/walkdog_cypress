@@ -24,8 +24,8 @@ jobs:
           record: true
           group: UI Electron
           spec: ${{ github.events.inputs.spec }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Start testes 
+        run: yarn cypress run
   cypress-e2e-chrome:
     needs: cypress-e2e-electron
     runs-on: ubuntu-latest
@@ -46,8 +46,6 @@ jobs:
           spec: ${{ github.events.inputs.spec }}
       - name: Start testes 
         run: yarn cypress run
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   cypress-e2e-firefox:
     needs: cypress-e2e-electron
     runs-on: ubuntu-latest
@@ -68,7 +66,5 @@ jobs:
           spec: ${{ github.events.inputs.spec }}
       - name: Start testes 
         run: yarn cypress run
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
       
