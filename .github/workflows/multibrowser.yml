@@ -22,7 +22,6 @@ jobs:
           install-command: yarn install
           browser: electron
           record: true
-          group: UI Electron
           spec: ${{ github.events.inputs.spec }}
       - name: Start testes 
         run: yarn cypress run
