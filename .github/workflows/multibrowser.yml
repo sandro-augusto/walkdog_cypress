@@ -25,5 +25,7 @@ jobs:
           record: true
           group: UI Electron
           spec: ${{ github.inputs.spec }}
+      - name: Testes Run
+        run: yarn cypress run 
         
       
