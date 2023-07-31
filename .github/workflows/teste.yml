@@ -13,11 +13,9 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
-          build: npm run build
-          start: npm start
+          build: yarn install
+          start: yarn cypress run
           browser: electron
-      - name: Tests run
-        run: yarn cypress run
   cypress-run-chrome:
     runs-on: ubuntu-22.04
     container: cypress/browsers:node16.16.0-chrome107-ff107-edge
