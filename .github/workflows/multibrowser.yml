@@ -5,7 +5,7 @@ on:
     inputs:
       spec: 
         description: Run by cypress command line
-        default: cypress/e2e/*
+        default: yarn cypress run
 jobs:
   cypress-e2e-electron:
     runs-on: unbutu-latest
@@ -21,8 +21,5 @@ jobs:
           record: true
           group: UI Electron
           spec: ${{ github.inputs.spec }}
-     
-      - name: Testes Run
-        run: yarn cypress run 
         
       
