@@ -1,11 +1,6 @@
 name: WalkDog Testes
 
 on:  
-  push:
-  pull_request:
-    branches:
-      - sandro-augusto
-      - Testes
   workflow_dispatch:
     inputs:
       cli: 
