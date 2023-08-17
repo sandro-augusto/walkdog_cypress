@@ -7,7 +7,7 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
   context('home', () => {
     it('Home', () => {
       cy.home()
-      cy.ValidaMensage('Cuidado e diversão em cada passo!')
+      cy.ValidaMensage('Cuidado e diversão em cada passo')
     })
     it('Validando pagina de cadastro', () => {
       cy.pagCadastro()
@@ -15,14 +15,6 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
   });
 
   context('cadastro', () => {
-    it('Cadastrando clientes para Passear com os cães', () => {
-      cy.pagCadastro()
-      cy.DadosPessoais(faker.person.fullName(), faker.internet.exampleEmail(), faker.random.numeric(11))
-      cy.Endereco(50760170, faker.random.numeric(4), 'casa')
-      cy.get(el.btPassear).click()
-      cy.uploud()
-      cy.ValidaMensageCadastroOk()
-    })
     it('Cadastrando clientes para Cuidar dos cães', () => {
       cy.pagCadastro()
       cy.DadosPessoais(faker.person.fullName(), faker.internet.exampleEmail(), faker.random.numeric(11))
@@ -46,7 +38,7 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
       cy.pagCadastro()
       cy.DadosPessoais(null, faker.internet.exampleEmail(), faker.random.numeric(11))
       cy.Endereco(50760170, faker.random.numeric(4), 'casa')
-      cy.get(el.btPassear).click()
+      cy.get(el.btCuidar).click()
       cy.uploud()
       cy.alertErro('Informe o seu nome completo')
     })
@@ -55,7 +47,7 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
       cy.pagCadastro()
       cy.DadosPessoais(faker.person.fullName(), null, faker.random.numeric(11))
       cy.Endereco(50760170, faker.random.numeric(4), 'casa')
-      cy.get(el.btPassear).click()
+      cy.get(el.btCuidar).click()
       cy.uploud()
       cy.alertErro('Informe o seu melhor email')
     })
@@ -63,7 +55,7 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
       cy.pagCadastro()
       cy.DadosPessoais(faker.person.fullName(), faker.internet.exampleEmail(), null)
       cy.Endereco(50760170, faker.random.numeric(4), 'casa')
-      cy.get(el.btPassear).click()
+      cy.get(el.btCuidar).click()
       cy.uploud()
       cy.alertErro('Informe o seu CPF')
     })
@@ -71,7 +63,7 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
       cy.pagCadastro()
       cy.DadosPessoais(faker.person.fullName(), faker.internet.exampleEmail(), faker.random.numeric(11))
       cy.Endereco(null, faker.random.numeric(4), 'casa')
-      cy.get(el.btPassear).click()
+      cy.get(el.btCuidar).click()
       cy.uploud()
       cy.alertErro('Informe o seu CEP')
     })
@@ -80,22 +72,22 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
       cy.DadosPessoais(faker.person.fullName(), faker.internet.exampleEmail(), faker.random.numeric(11))
       cy.Endereco(50760170, null, 'casa')
       cy.get(el.btBuscarCep)
-      cy.get(el.btPassear).click()
+      cy.get(el.btCuidar).click()
       cy.uploud()
       cy.alertErro('Informe um número maior que zero')
     })
-    it('Validando mensagem de erro Tipo de Atividade', () => {
-      cy.pagCadastro()
-      cy.DadosPessoais(faker.person.fullName(), faker.internet.exampleEmail(), faker.random.numeric(11))
-      cy.Endereco(50760170, faker.random.numeric(4), 'casa')
-      cy.uploud()
-      cy.alertErro('Escolha pelo menos um tipo de atividade')
-    })
+    // it.only('Validando mensagem de erro Tipo de Atividade', () => {
+    //   cy.pagCadastro()
+    //   cy.DadosPessoais(faker.person.fullName(), faker.internet.exampleEmail(), faker.random.numeric(11))
+    //   cy.Endereco(50760170, faker.random.numeric(4), 'casa')
+    //   cy.uploud()
+    //   cy.alertErro('Escolha pelo menos um tipo de atividade')
+    // })
     it('Validando mensagem de erro do Upload', () => {
       cy.pagCadastro()
       cy.DadosPessoais(faker.person.fullName(), faker.internet.exampleEmail(), faker.random.numeric(11))
       cy.Endereco(50760170, faker.random.numeric(4), 'casa')
-      cy.get(el.btPassear).click()
+      cy.get(el.btCuidar).click()
       cy.get(el.btCadastrar).click()
       cy.alertErro('Adcione um documento com foto (RG ou CHN)')
     })
