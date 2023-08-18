@@ -14,7 +14,7 @@ import 'cypress-file-upload';
 
   Cypress.Commands.add('pagCadastro', () => {
     cy.visit('https://walkdog.vercel.app/')
-    cy.ValidaMensage('Cuidado e diversão em cada passo!')
+    cy.ValidaMensage('Cuidado e diversão em cada passo')
     cy.get(el.btLogin).click()
     cy.ValidaMensage('Faça seu cadastro')
   })
@@ -51,23 +51,12 @@ import 'cypress-file-upload';
   })
 
   Cypress.Commands.add('ValidaMensageCadastroOk', () => {
-    cy.get('p').should('have.text', 'Recebemos o seu cadastro e em breve retornaremos o contato!')
+    cy.get('#swal2-html-container').should('have.text', 'Recebemos o seu cadastro e em breve retornaremos o contato.')
   })
 
-
-  
   Cypress.Commands.add('alertErro', (mensage) => {
     cy.contains('span', mensage).should('be.visible')
     
   })
-
-  // cy.contains('span', 'Informe o seu nome completo')
-  //   cy.contains('span', 'Informe o seu melhor email')
-  //   cy.contains('span', 'Informe o seu CPF')
-  //   cy.contains('span', 'Informe o seu CEP')
-  //   cy.contains('span', 'Informe um número maior que zero')
-  //   cy.contains('span', 'Escolha pelo menos um tipo de atividade')
-  //   cy.contains('span', 'Adcione um documento com foto (RG ou CHN)')
-  
   
   
