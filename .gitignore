@@ -1,5 +1,5 @@
 /node_modules
 /allure-results
-/videos
+/videos/*
 /screenshots
-/*.mp4
+*.mp4
