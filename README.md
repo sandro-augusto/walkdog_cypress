@@ -39,4 +39,4 @@
 * **"run_allure_npm" - TAG pra rodar em headless com o NPM e o relatório Allure** 
 * **"yallure_serve" - Abrir o servidor do relatório Allure com o Yarn**
 * **"nallure_serve" - Abrir o servidor do relatório Allure com o NPM**
-* **"test" - Rodar o projeto em headless e abrir o relatório em HTML**
+* **"test" - Rodar o projeto em headless e abrir o relatório Allure em HTML**
