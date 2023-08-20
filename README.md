@@ -31,7 +31,7 @@
 ```
 **ou**
 ```sh default
-* npx cypress open
+* npx cypress (tag)
 ```
 
 **SCRIPTS:**
