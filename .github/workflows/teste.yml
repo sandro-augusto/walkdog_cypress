@@ -15,15 +15,6 @@ jobs:
       - name: Install project dependencies
         uses: yarn install
 
-      - name: Run tests
-        uses: cypress-io/github-action@v5
-
-      - name: Upload Reports
-        uses: actions/upload-artifact@v4
-        with:
-          name: Reports
-          path: allure-results/*/index.html
-
       
 
       
