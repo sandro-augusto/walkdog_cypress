@@ -1,45 +1,33 @@
-name: Tests
+name: Run Basic Tests - WalkDog
 
-on:  
-  workflow_dispatch:
+on:
+  pull_request:
+    branches: [main]
 
-jobs:
-  cypress-run-electron:
-    runs-on: ubuntu-22.04
-    container: cypress/browsers:node16.16.0-chrome107-ff107-edge
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Cypress run
-        uses: cypress-io/github-action@v5
+jobs: 
+  cypress-run:
+    runs-on: unbutu-latest
+      
+    steps: 
+      - name: Checkout the project
+        uses: actions/checkout@v4
+
+      - name: Install project dependencies
+        uses: yarn install
+
+      - name: Run tests
+        uses: cypress-io/github-action@v6
+        with: 
+          record: true
+
+      - name: Upload Reports
+        uses: actions/upload-artifact@v4
+        if: always()
         with:
-          browser: electron
-          start: yarn cypress run
-  cypress-run-chrome:
-    runs-on: ubuntu-22.04
-    container: cypress/browsers:node16.16.0-chrome107-ff107-edge
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Cypress run
-        uses: cypress-io/github-action@v5
-        with:
-          build: npm run build
-          start: npm start
-          browser: chrome
-      - name: Tests run
-        run: yarn cypress run
-  cypress-run-firefox:
-    runs-on: ubuntu-22.04
-    container: cypress/browsers:node16.16.0-chrome107-ff107-edge
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Cypress run
-        uses: cypress-io/github-action@v5
-        with:
-          build: npm run build
-          start: npm start
-          browser: firefox
-      - name: Tests run
-        run: yarn cypress run
+          name: Reports
+          path: allure-results/*/index.html
+
+      
+
+      
+      
