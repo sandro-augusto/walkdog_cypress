@@ -25,7 +25,7 @@ jobs:
         # if: always()
         with:
           name: Reports
-          path: allure-results/*/index.html
+          path: allure-results
 
       
 
