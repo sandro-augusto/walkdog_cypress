@@ -3,7 +3,7 @@ name: Cypress e Allure
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   test:
