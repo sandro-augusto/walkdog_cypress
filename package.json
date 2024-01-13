@@ -9,7 +9,7 @@
     "yallure_serve": "yarn allure serve",
     "nallure_serve": "npx allure serve",
     "test": "npm-run-all run_allure nallure_serve",
-    "allure:generate": "allure generate --clean && echo 'Allure report generated. To view the report, follow this link: https://sandro-augusto.github.io/walkdog_cypress/allure-report'"
+    "allure:generate": "allure generate --clean && echo 'Allure report generated. To view the report, follow this link: https://sandro-augusto.github.io/walkdog_cypress'"
       
   },
   "keywords": [],
