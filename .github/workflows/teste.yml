@@ -21,8 +21,11 @@ jobs:
     - name: Instalar dependências
       run: npm install
 
+    - name: Rodar o teste
+      run: yarn run run_allure
+
     - name: Gerar relatórios do Allure
-      run: npm run test
+      run: npm run allure:generate
 
     - name: Publicar relatórios no GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
