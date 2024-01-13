@@ -21,11 +21,8 @@ jobs:
     - name: Instalar dependências
       run: npm install
 
-    - name: Executar testes Cypress
-      run: npm run cypress:run
-
     - name: Gerar relatórios do Allure
-      run: npm run allure:generate
+      run: npm run test
 
     - name: Publicar relatórios no GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
