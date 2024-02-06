@@ -34,6 +34,15 @@
 * npx cypress (tag)
 ```
 
+# Cypress Project Structure
+
+| Directory                | Purpose                                                                         |
+|--------------------------|-----------------------------------------------------------------------------------|
+| `e2e/`  | Está todas os passos que foram implementados nas `pages` |
+| `support/pages/`  | Objetos de página ou módulos, como `cadastroPage.js`, contendo métodos relacionados.|
+| `support/elements/`      | Definições de elementos comuns usados nas páginas, por exemplo, `homeElements.js`. |
+| `cypress.json`           | Arquivo de configuração principal do Cypress, onde podem ser definidas configurações globais para testes. |
+
 **SCRIPTS:**
 * **"run_allure" - TAG pra rodar em headless com o Yarn e o relatório Allure**
 * **"run_allure_npm" - TAG pra rodar em headless com o NPM e o relatório Allure** 

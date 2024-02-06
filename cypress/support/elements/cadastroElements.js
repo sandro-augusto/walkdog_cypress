@@ -1,5 +1,5 @@
 export const CADASTRO = {
-    btLogin: 'svg[fill="none"]',
+    validaPage: 'a[href="/"]',
     campoNome: 'input[name="name"]',
     campoEmail: 'input[name="email"]',
     campoCpf: 'input[name="cpf"]',
@@ -12,5 +12,6 @@ export const CADASTRO = {
     btAdestrar: 'img[alt="Adestrar"]',
     btUpload: 'svg[fill="none"]',
     btCadastrar: '.button-register',
-    alertErro: '.alert-error'
+    alertErro: '.alert-error',
+    messageSucesso: '#swal2-html-container'
 }
