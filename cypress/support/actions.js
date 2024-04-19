@@ -77,7 +77,7 @@ function get_text(el) {
 }
 
 function get_text_index(el, index) {
-    waitElement(el)
+    waitElement_index(el, index)
     let text
     try {
         text = cy.get(el).eq(index);
@@ -99,8 +99,18 @@ function scrollTo(el) {
     return scrollTo;
 }
 
+function visitUrl(url) {
+    try {
+        cy.visit(url)
+        cy.log('Visitou a ' + url)
+    } catch (error) {
+        cy.log('Exceção capturada: ' + error.message);
+    }
+    return scrollTo;
+}
+
 
 module.exports = {
     set, click, waitElement, waitElement_index, click_index, 
-        clear, get_text, scrollTo, get_text_index
+        clear, get_text, scrollTo, get_text_index, visitUrl
 };

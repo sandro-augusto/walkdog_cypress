@@ -22,6 +22,7 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
       upload()
       cadastro.clickCadastrar()
       cadastro.validaCadastro().then((mensagem) => {
+        cy.screenshot()
         expect(mensagem.text()).eq('Recebemos o seu cadastro e em breve retornaremos o contato.')
       })
     })
@@ -37,6 +38,7 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
       upload()
       cadastro.clickCadastrar()
       cadastro.validaCadastro().then((mensagem) => {
+        cy.screenshot()
         expect(mensagem.text()).eq('Recebemos o seu cadastro e em breve retornaremos o contato.')
       })
       })
@@ -54,6 +56,7 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
       upload()
       cadastro.clickCadastrar()
       cadastro.validaMessagemErro().then((mensagem) => {
+        cy.screenshot()
         expect(mensagem.text()).eq('Informe o seu nome completo')
       })
     })
@@ -69,6 +72,7 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
       upload()
       cadastro.clickCadastrar()
       cadastro.validaMessagemErro().then((mensagem) => {
+        cy.screenshot()
         expect(mensagem.text()).eq('Informe o seu melhor email')
       })
     })
@@ -83,6 +87,7 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
       upload()
       cadastro.clickCadastrar()
       cadastro.validaMessagemErro().then((mensagem) => {
+        cy.screenshot()
         expect(mensagem.text()).eq('Informe o seu CPF')
       })
     })
@@ -98,6 +103,7 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
       upload()
       cadastro.clickCadastrar()
       cadastro.validaMessagemErro().then((mensagem) => {
+        cy.screenshot()
         expect(mensagem.text()).eq('CPF inválido')
       })
     })
@@ -113,6 +119,7 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
       upload()
       cadastro.clickCadastrar()
       cadastro.validaMessagemErro().then((mensagem) => {
+        cy.screenshot()
         expect(mensagem.text()).eq('Informe o seu CEP')
       })
     })
@@ -127,6 +134,7 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
       upload()
       cadastro.clickCadastrar()
       cadastro.validaMessagemErro().then((mensagem) => {
+        cy.screenshot()
         expect(mensagem.text()).eq('Informe um número maior que zero')
       })
     })
@@ -147,6 +155,7 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
       cadastro.opcaoAdestrar()
       cadastro.clickCadastrar()
       cadastro.validaMessagemErro().then((mensagem) => {
+        cy.screenshot()
         expect(mensagem.text()).eq('Adcione um documento com foto (RG ou CHN)')
       })
     })

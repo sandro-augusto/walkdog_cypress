@@ -1,19 +1,20 @@
 /// <reference types="cypress" />
 let el = require('../elements/homeElements').HOME
-const { set, click,  } = require('../actions');
+const { click, get_text, visitUrl } = require('../actions');
 
 class Home {
 
     acessarPage() {
-        cy.visit(el.url)
+        visitUrl(el.url)
     }
 
     validaHomePage() {
-        return cy.get(el.validaHome)
+        return get_text(el.validaHome)
     }
 
     clicarCadastro() {
-        cy.get(el.btLogin).click()
+        cy.screenshot()
+        click(el.btLogin)
     }
 }
 

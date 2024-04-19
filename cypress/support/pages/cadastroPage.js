@@ -45,6 +45,7 @@ class Cadastro {
     }
 
     clickCadastrar() {
+        cy.screenshot()
         click(el.btCadastrar)
     }
 
