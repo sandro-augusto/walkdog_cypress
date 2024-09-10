@@ -11,7 +11,7 @@ describe('Acessar a Pagina do WalkDog e clicar no botão para acessar a pagina d
     
         it('Validar a pagina Home', () => {
           home.validaHomePage().then((mensagem) => {
-            expect(mensagem.text()).eq('Cuidado e diversão em cada passo')
+            expect(mensagem).eq('Cuidado e diversão em cada passo')
           })
         })
     

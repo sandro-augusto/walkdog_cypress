@@ -36,15 +36,21 @@ class Cadastro {
         click(el.btBuscarCep)
     }
 
-    opcaoCuidar() {
-        click(el.btCuidar)
-    }
-
-    opcaoAdestrar() {
-        click(el.btAdestrar)
+    opcoesWalkdog(opcao) {
+        switch (opcao) {
+            case "cuidar":
+                click(el.btCuidar)
+                break;
+            case "adestrar":
+                click(el.btAdestrar)
+                break;
+        default:
+            console.log("Favor informar uma opção válida.")
+        }
     }
 
     clickCadastrar() {
+        cy.screenshot()
         click(el.btCadastrar)
     }
 
