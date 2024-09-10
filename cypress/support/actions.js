@@ -68,7 +68,7 @@ function get_text(el) {
     waitElement(el)
     let text
     try {
-        text = cy.get(el);
+        text = cy.get(el).invoke('text');
         cy.log('Encontrou o ' + el + ' com o texto ' + text)
     } catch (error) {
         cy.log('Exceção capturada: ' + error.message);
@@ -80,7 +80,7 @@ function get_text_index(el, index) {
     waitElement_index(el, index)
     let text
     try {
-        text = cy.get(el).eq(index);
+        text = cy.get(el).eq(index).invoke('text');
         cy.log('Encontrou o ' + el + ' com o index ' + index + 'e com o texto ' + text)
     } catch (error) {
         cy.log('Exceção capturada: ' + error.message);
