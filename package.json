@@ -4,22 +4,19 @@
   "description": "Funcionalidade: Criar uma tela de cadastro para usuários se registrarem com as possibilidades de Cuidar e Adestrar cães",
   "main": "index.js",
   "scripts": {
-    "run_allure": "yarn cypress run --env allure=true",
-    "run_allure_npm": "npx cypress run --env allure=true",
-    "yallure_serve": "yarn allure serve",
-    "nallure_serve": "npx allure serve",
-    "test": "npm-run-all run_allure nallure_serve",
-    "allure:generate": "allure generate --clean && echo 'Allure report generated. To view the report, follow this link: https://sandro-augusto.github.io/walkdog_cypress'"
-      
+    "test": "npx cypress run --config video=false --env allure=true || true",
+    "allure:report": "allure generate allure-results",
+    "allure:clear": "rm -r allure-results/ allure-report || true",
+    "test:cy": "npm run allure:clear && npm run e2e && npm run allure:report"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
-    "@shelex/cypress-allure-plugin": "^2.40.0",
+    "@shelex/cypress-allure-plugin": "^2.40.2",
     "allure-commandline": "^2.23.1",
-    "cypress": "12.2.0",
+    "cypress": "^13.14.2",
     "cypress-file-upload": "^5.0.8",
     "npm-run-all": "^4.1.5"
   },
