@@ -14,7 +14,7 @@ class Home {
 
     clicarCadastro() {
         cy.screenshot()
-        click(el.btLogin)
+        click(el.btLogin) 
     }
 }
 
