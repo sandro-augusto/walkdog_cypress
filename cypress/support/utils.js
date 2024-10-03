@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 import 'cypress-file-upload';
-
+ 
 const randomName = () => {
     return faker.person.fullName();
 }
