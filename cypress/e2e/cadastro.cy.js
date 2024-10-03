@@ -10,7 +10,7 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
     home.clicarCadastro()
     cadastro.validaCadastroPage().then((mensagem) => {
       expect(mensagem).eq('Voltar para home')
-  })
+    })
   });
 
   context('Cadastro Sucesso', () => {
@@ -29,13 +29,13 @@ describe('Realização de cadastros e validações de mensagens de erro', () => 
       })
     });
 
-    it('Cadastrando clientes para Cuidar dos cães', () => {
-      cadastro.opcoesWalkdog("cuidar")
-    })
+    const opcoes = ["cuidar", "adestrar"];
 
-    it('Cadastrando clientes para Adestrar os cães', () => {
-      cadastro.opcoesWalkdog("adestrar")
-    })
+    opcoes.forEach(opcao => {
+      it(`Cadastrando clientes para ${opcao} dos cães`, () => {
+        cadastro.opcoesWalkdog(opcao);
+      });
+    });
   })
 
   context('Validando mensagens de erro', () => {
